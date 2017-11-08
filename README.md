@@ -45,10 +45,26 @@ The core-library tree is a collection of useful DataFlow Operators and miscellan
 
 ## Configuration
 
-Before building core-library you need to define the following environment variables to point to the local DataFlow update site [dataflow-p2-site](https://github.com/ActianCorp/dataflow-p2-site) root directory and the DataFlow version.
-
-    export DATAFLOW_REPO_HOME=/Users/myuser/dataflow-p2-site
-    export DATAFLOW_VER=6.5.2.112
+Before building core-library you need to define the following variables to point to the local DataFlow update site [dataflow-p2-site](https://github.com/ActianCorp/dataflow-p2-site) root directory and the DataFlow version.
+These should be defined in settings.xml as properties of an active profile.
+e.g.
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <profiles>
+    <profile>
+      <id>default</id>
+      <properties>
+        <user.DATAFLOW_VER>6.6.0.111</user.DATAFLOW_VER>
+        <user.DATAFLOW_REPO_HOME>${user.home}/dataflow-p2-site</user.DATAFLOW_REPO_HOME>
+      </properties>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>default</activeProfile>
+  </activeProfiles>
+</settings>
 
 ## Building
 
