@@ -15,6 +15,11 @@
  */
 package com.actian.services.dataflow.operators;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonMethod;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.annotate.JsonTypeName;
+
 import com.pervasive.datarush.DRException;
 import com.pervasive.datarush.annotations.OperatorDescription;
 import com.pervasive.datarush.annotations.PortDescription;
@@ -27,9 +32,7 @@ import com.pervasive.datarush.operators.StreamingMetadataContext;
 import com.pervasive.datarush.ports.physical.RecordInput;
 import com.pervasive.datarush.ports.physical.RecordOutput;
 import com.pervasive.datarush.ports.physical.ScalarInputField;
-import com.pervasive.datarush.ports.record.DataDistribution;
 import com.pervasive.datarush.ports.record.DataOrdering;
-import com.pervasive.datarush.ports.record.KeyDrivenDataDistribution;
 import com.pervasive.datarush.ports.record.MetadataUtil;
 import com.pervasive.datarush.ports.record.RecordPort;
 import com.pervasive.datarush.sequences.record.RecordTokenList;
@@ -54,16 +57,12 @@ import com.pervasive.datarush.tokens.scalar.StringRegister;
 import com.pervasive.datarush.tokens.scalar.StringValued;
 import com.pervasive.datarush.types.RecordTokenType;
 import com.pervasive.datarush.types.TypeUtil;
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonMethod;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeName;
 
 @JsonAutoDetect(JsonMethod.NONE)
 @JsonTypeName("leadLag")
 @OperatorDescription("Extends data with lead and lag values.")
 public class LeadLag extends ExecutableOperator implements RecordPipelineOperator {
-
+	
     private final RecordPort input = newRecordInput("input");
     private final RecordPort output = newRecordOutput("output");
     private String[] keys;
@@ -214,10 +213,10 @@ public class LeadLag extends ExecutableOperator implements RecordPipelineOperato
         schema = TypeUtil.merge(schema, schema, schema);
 
         // Do we need to redistribute?
-        DataDistribution inputDistribution = input.getSourceDataDistribution(ctx);
-        input.setRequiredDataDistribution(ctx, KeyDrivenDataDistribution.hashed(keys));
-        KeyDrivenDataDistribution kdist = MetadataUtil.negotiateGrouping(ctx, input, keys);
-        input.setRequiredDataDistribution(ctx, inputDistribution);
+        //DataDistribution inputDistribution = input.getSourceDataDistribution(ctx);
+        //input.setRequiredDataDistribution(ctx, KeyDrivenDataDistribution.hashed(keys));
+        MetadataUtil.negotiateGrouping(ctx, input, keys);
+        //input.setRequiredDataDistribution(ctx, inputDistribution);
         
         SortKey[] sorts = new SortKey[keys.length + 1];
         int keyPos = 0;
