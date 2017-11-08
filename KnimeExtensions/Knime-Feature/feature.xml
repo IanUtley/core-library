@@ -42,11 +42,11 @@
    </license>
 
    <url>
-      <update label="%UPDATE_SITE_NAME%"/>
+      <update label="MYSITE" url=""/>
    </url>
 
    <requires>
-      <import feature="org.knime.features.base" version="2.9.0" match="compatible"/>
+      <import feature="org.knime.features.base" version="2.11" match="compatible"/>
    </requires>
 
    <plugin
@@ -60,5 +60,5 @@
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-   
+
 </feature>

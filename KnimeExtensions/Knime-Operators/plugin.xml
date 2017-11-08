@@ -11,10 +11,12 @@
         <node category-path="/ActianServices/DataFlowLauncher" factory-class="com.actian.services.knime.core.operators.MockableExternalRecordSourceNodeModelFactory" id="com.actian.services.knime.core.operators.MockableExternalRecordSourceNodeModelFactory"/>
         <node category-path="/ActianServices/DataFlowLauncher" factory-class="com.actian.services.knime.core.operators.MockableExternalRecordSinkNodeModelFactory" id="com.actian.services.knime.core.operators.MockableExternalRecordSinkNodeModelFactory"/>
         <node category-path="/ActianServices" factory-class="com.actian.services.knime.core.operators.DeriveGroupNodeModelFactory" id="com.actian.services.knime.core.operators.DeriveGroupNodeModelFactory"/>
+        <node category-path="/ActianServices" factory-class="com.actian.services.knime.core.operators.DeriveFieldsNodeModelFactory" id="com.actian.services.knime.core.operators.DeriveFieldsNodeModelFactory"/>
         <node category-path="/ActianServices" factory-class="com.actian.services.knime.core.operators.SessionizeNodeModelFactory" id="com.actian.services.knime.core.operators.SessionizeNodeModelFactory"/>
         <node category-path="/ActianServices/DataFlowLauncher" factory-class="com.actian.services.knime.core.operators.ZipRowsNodeModelFactory" id="com.actian.services.knime.core.operators.ZipRowsNodeModelFactory"/>
         <node category-path="/ActianServices" factory-class="com.actian.services.knime.core.operators.XPathTableNodeModelFactory" id="com.actian.services.knime.core.operators.XPathTableNodeModelFactory"/>
         <node category-path="/ActianServices" factory-class="com.actian.services.knime.core.operators.LeadLagNodeModelFactory" id="com.actian.services.knime.core.operators.LeadLagNodeModelFactory"/>
+        <node category-path="/ActianServices" factory-class="com.actian.services.knime.core.operators.MarkovChainNodeModelFactory" id="com.actian.services.knime.core.operators.MarkovChainNodeModelFactory"/>
         <node category-path="/ActianServices/DataFlowLauncher" factory-class="com.actian.services.knime.core.operators.SubJobExecutorNodeModelFactory" id="com.actian.services.knime.core.operators.SubJobExecutorNodeModelFactory"/>
     </extension>
 

@@ -12,6 +12,7 @@ Require-Bundle:
  com.pervasive.datarush.knime.core.runtime;resolution:=optional,
  com.pervasive.datarush.knime.core.ui;resolution:=optional,
  com.pervasive.datarush.knime.base.ui;resolution:=optional
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,target/lib/core-dataflow.jar,target/lib/jackson-core-asl.jar,target/lib/jackson-mapper-asl.jar
+Import-Package: org.apache.commons.math.linear;version="0.0.0"
